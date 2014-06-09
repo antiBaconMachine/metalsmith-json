@@ -1,13 +1,18 @@
-var _ = require('lodash');
+var _ = require('lodash'),
+    path = require('path');
 
 module.exports = function(opts) {
 
     opts = _.extend({
-        spam : 'eggs'
+        key: 'data'
     }, (opts || {}));
 
     return function(files, metalsmith, done) {
-        console.log(opts);
+        _.each(files, function (file, key) {
+            if (path.extname(key) === '.json') {
+                file[opts.key] = JSON.parse(file.contents);
+            }
+        });
         done();
     };
 };

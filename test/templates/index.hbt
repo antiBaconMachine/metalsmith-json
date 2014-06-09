@@ -2,17 +2,8 @@
 <html>
     {{#each collections.builds}}
         <div class='build'>
-        build
-            <h2>Build #{{config.build}}</h2>
-            <p>version: {{config.version}}</p>
-            <ul>
-                {{#if platforms.ios}}
-                    <li><a href="{{platforms.ios}}">ios</a></li>
-                {{/if}}
-                {{#if platforms.android}}
-                    <li><a href="{{platforms.android}}">android</a></li>
-                {{/if}}
-            </ul>
+            <h2>Build #{{data.build}}</h2>
+            <p>version: {{data.version}}</p>
         </div>
     {{/each}}
 </html>

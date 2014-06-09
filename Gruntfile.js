@@ -11,18 +11,19 @@ module.exports = function (grunt) {
             }
         },
 
-        // Before generating any new files, remove any previously-created files.
+        //Before generating any new files, remove any previously-created files.
         clean: {
             tests: ['test/output']
         },
 
         jasmine_node: {
-            all: ['spec/']
+            unit: ['spec/'],
+            integration: ['integration/']
         },
 
 
         jshint: {
-            all: [
+            alll: [
                 'Gruntfile.js',
                 'spec/*.js',
                 '*.js'
@@ -32,31 +33,15 @@ module.exports = function (grunt) {
             }
         },
 
-        metalsmith: {
-            json: {
-                options: {
-                    plugins: {
-                        '../../../index.js': {
-                            foo : 'bar'
-                        },
-                        'metalsmith-collections': {
-                            builds: {
-                                pattern: 'builds/*/config.json'
-                            }
-                        },
-                        'metalsmith-templates': {
-                            engine: 'handlebars',
-                            directory: 'test/templates'
-                        }
-                    }
-                },
-                src: 'test/src',
-                dest: 'test/output'
+        exec: {
+            metalsmith: {
+                cwd: './test',
+                command: '../node_modules/metalsmith/bin/metalsmith'
             }
         }
     });
 
-    grunt.registerTask('test', ['clean:tests', 'metalsmith:json', 'jasmine_node:all']);
+    grunt.registerTask('test', ['clean:tests', 'jasmine_node:unit', 'exec:metalsmith', 'jasmine_node:integration']);
 
     grunt.registerTask('default', ['jshint:all', 'test']);
 
