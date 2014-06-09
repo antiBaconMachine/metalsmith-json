@@ -11,4 +11,4 @@ key (default: data) on the file object.
 #### options.key
 Type: `String`
 Default value: `data`
-Description Key the josn properties should be accumulated under
+Description Key the json properties should be accumulated under
