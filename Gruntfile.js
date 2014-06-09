@@ -23,9 +23,9 @@ module.exports = function (grunt) {
 
 
         jshint: {
-            alll: [
-                'Gruntfile.js',
-                'spec/*.js',
+            all: [
+                'test/spec/*.js',
+                'test/integration/*.js',
                 '*.js'
             ],
             options: {
