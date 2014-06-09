@@ -17,8 +17,8 @@ module.exports = function (grunt) {
         },
 
         jasmine_node: {
-            unit: ['spec/'],
-            integration: ['integration/']
+            unit: ['test/spec/'],
+            integration: ['test/integration/']
         },
 
 
