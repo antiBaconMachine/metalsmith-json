@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-json",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Metalsmith plugin which parses json files and exposes their properties as metadata on the file object",
   "main": "index.js",
   "scripts": {
