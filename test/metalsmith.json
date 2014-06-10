@@ -5,7 +5,9 @@
         "metalsmith-collections": {
             "builds": "builds/*/config.json"
         },
-        "../../../index.js": true,
+        "../../../index.js": {
+            "key": "foo"
+        },
         "metalsmith-templates": "handlebars"
     }
 }

@@ -8,14 +8,28 @@ key (default: data) on the file object.
 
 [Blog post](http://www.abm.io/implementing-a-metalsmith-plugin/) which led to creation of this plugin.
 
+### CLI Usage
+
+in metalsmith.json
+
+```js
+{
+    "source": "src",
+    "destination": "output",
+    "plugins": {
+        "metalsmith-json": {
+        	"key": "foo"
+        },
+    }
+}
+```
+
 ### Options
 
 #### options.key
-Type: `String`
-
-Default value: `data`
-
-Description Key the json properties should be accumulated under
+Type: `String`  
+Default value: `data`  
+Description: Key the json properties should be accumulated under
 
 ### Development
 
