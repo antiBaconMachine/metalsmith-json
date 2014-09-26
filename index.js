@@ -1,14 +1,12 @@
-var _ = require('lodash'),
-    path = require('path');
+var path = require('path');
 
 module.exports = function(opts) {
+    opts = opts || {};
+    opts.key = opts.key || 'data';
 
-    opts = _.extend({
-        key: 'data'
-    }, (opts || {}));
-
-    return function(files, metalsmith, done) {
-        _.each(files, function (file, key) {
+    return function (files, metalsmith, done) {
+        Object.keys(files).forEach(function (key) {
+            var file = files[key];
             if (path.extname(key) === '.json') {
                 file[opts.key] = JSON.parse(file.contents);
             }
